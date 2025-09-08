@@ -1,2 +1,14 @@
 server:
   port: 8081
+
+# Microsserviço de busca de endereço por CEP
+ms:
+  client:
+    address:
+      url: http://localhost:8082/adresses
+
+# Configuração do MongoDB
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/hexagonal
