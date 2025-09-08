@@ -3,12 +3,12 @@ package com.poc.hexagonal.adapters.out;
 import com.poc.hexagonal.adapters.out.repository.CustomerRepository;
 import com.poc.hexagonal.adapters.out.repository.mapper.CustomerEntityMapper;
 import com.poc.hexagonal.application.core.domain.Customer;
-import com.poc.hexagonal.application.ports.out.InsertCustomerOutputPort;
+import com.poc.hexagonal.application.ports.out.UpdateCustomerOutputPort;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class InsertCustomerAdapter implements InsertCustomerOutputPort {
+public class UpdateCustomerAdapter implements UpdateCustomerOutputPort {
 
     @Autowired
     private CustomerRepository customerRepository;
@@ -17,7 +17,7 @@ public class InsertCustomerAdapter implements InsertCustomerOutputPort {
     private CustomerEntityMapper customerEntityMapper;
 
     @Override
-    public void insert(Customer customer){
+    public void update(Customer customer) {
         var customerEntity = customerEntityMapper.toCustomerEntity(customer);
         customerRepository.save(customerEntity);
     }

@@ -3,8 +3,10 @@ package com.poc.hexagonal.adapters.in.controller;
 import com.poc.hexagonal.adapters.in.controller.mapper.CustomerMapper;
 import com.poc.hexagonal.adapters.in.controller.request.CustomerRequest;
 import com.poc.hexagonal.adapters.in.controller.response.CustomerResponse;
+import com.poc.hexagonal.application.core.domain.Customer;
 import com.poc.hexagonal.application.ports.in.FindCustomerByIdInputPort;
 import com.poc.hexagonal.application.ports.in.InsertCustomerInputPort;
+import com.poc.hexagonal.application.ports.in.UpdateCostumerInputPort;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -22,6 +24,9 @@ public class CustomerController {
     private FindCustomerByIdInputPort findCustomerByIdInputPort;
 
     @Autowired
+    private UpdateCostumerInputPort updateCostumerInputPort;
+
+    @Autowired
     private CustomerMapper customerMapper;
 
     @PostMapping
@@ -37,4 +42,13 @@ public class CustomerController {
         var customerResponse = customerMapper.toCustomerResponse(customer);
         return ResponseEntity.ok().body(customerResponse);
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Void> update(@PathVariable final String id, @Valid @RequestBody CustomerRequest customerRequest) {
+        Customer customer = customerMapper.toCustomer(customerRequest);
+        customer.setId(id);
+        updateCostumerInputPort.update(customer, customerRequest.getZipCode());
+        return ResponseEntity.ok().build();
+    }
+
 }
