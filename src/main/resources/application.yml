@@ -5,7 +5,7 @@ server:
 ms:
   client:
     address:
-      url: http://localhost:8082/adresses
+      url: http://localhost:8082/addresses
 
 # Configuração do MongoDB
 spring:
