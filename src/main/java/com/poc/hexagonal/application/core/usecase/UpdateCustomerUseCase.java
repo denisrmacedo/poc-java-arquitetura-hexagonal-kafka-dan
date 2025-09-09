@@ -2,12 +2,11 @@ package com.poc.hexagonal.application.core.usecase;
 
 import com.poc.hexagonal.application.core.domain.Customer;
 import com.poc.hexagonal.application.ports.in.FindCustomerByIdInputPort;
-import com.poc.hexagonal.application.ports.in.UpdateCostumerInputPort;
+import com.poc.hexagonal.application.ports.in.UpdateCustomerInputPort;
 import com.poc.hexagonal.application.ports.out.FindAddressByZipCodeOutputPort;
 import com.poc.hexagonal.application.ports.out.UpdateCustomerOutputPort;
-import org.springframework.web.bind.annotation.GetMapping;
 
-public class UpdateCustomerUseCase implements UpdateCostumerInputPort {
+public class UpdateCustomerUseCase implements UpdateCustomerInputPort {
 
     private final FindCustomerByIdInputPort findCustomerByIdInputPort;
 
@@ -32,4 +31,5 @@ public class UpdateCustomerUseCase implements UpdateCostumerInputPort {
         customer.setAddress(address);
         updateCustomerOutputPort.update(customer);
     }
+
 }

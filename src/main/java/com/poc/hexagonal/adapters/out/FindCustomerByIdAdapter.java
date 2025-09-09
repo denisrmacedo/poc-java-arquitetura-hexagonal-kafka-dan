@@ -21,6 +21,7 @@ public class FindCustomerByIdAdapter implements FindCustomerByIdOutputPort {
     @Override
     public Optional<Customer> find(String id) {
         var customerEntity = customerRepository.findById(id);
-        return customerEntity.map(entity -> customerEntityMapper.toCostumer(entity));
+        return customerEntity.map(entity -> customerEntityMapper.toCustomer(entity));
     }
+
 }

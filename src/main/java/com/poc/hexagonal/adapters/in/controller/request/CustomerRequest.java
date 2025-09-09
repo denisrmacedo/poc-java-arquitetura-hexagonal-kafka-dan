@@ -15,4 +15,5 @@ public class CustomerRequest {
 
     @NotBlank
     private String zipCode;
+
 }

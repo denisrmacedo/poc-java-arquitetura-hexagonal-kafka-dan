@@ -19,8 +19,9 @@ public class DeleteCustomerByIdUseCase implements DeleteCustomerByIdInputPort {
     }
 
     @Override
-    public void delete(String id) {
+    public void delete(final String id) {
         findCustomerByIdInputPort.find(id);
         deleteCustomerByIdOutputPort.delete(id);
     }
+
 }

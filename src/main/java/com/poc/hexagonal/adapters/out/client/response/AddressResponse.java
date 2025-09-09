@@ -10,4 +10,5 @@ public class AddressResponse {
     private String city;
 
     private String state;
+
 }

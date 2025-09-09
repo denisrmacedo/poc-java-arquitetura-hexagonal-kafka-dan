@@ -21,4 +21,5 @@ public class UpdateCustomerAdapter implements UpdateCustomerOutputPort {
         var customerEntity = customerEntityMapper.toCustomerEntity(customer);
         customerRepository.save(customerEntity);
     }
+
 }

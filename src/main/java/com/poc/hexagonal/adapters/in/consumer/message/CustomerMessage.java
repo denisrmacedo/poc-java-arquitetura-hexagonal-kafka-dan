@@ -13,7 +13,7 @@ public class CustomerMessage {
 
     private String name;
 
-    private String email;
+    private String zipCode;
 
     private String cpf;
 

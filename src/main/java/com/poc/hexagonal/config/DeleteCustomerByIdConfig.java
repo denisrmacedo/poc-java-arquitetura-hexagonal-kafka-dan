@@ -10,13 +10,14 @@ import org.springframework.context.annotation.Configuration;
 public class DeleteCustomerByIdConfig {
 
     @Bean
-    public DeleteCustomerByIdUseCase deleteCustomerByIdAdapter(
-            FindCustomerByIdUseCase findCustomerByIdAdapter,
+    public DeleteCustomerByIdUseCase deleteCustomerByIdUseCase(
+            FindCustomerByIdUseCase findCustomerByIdUseCase,
             DeleteCustomerByIdAdapter deleteCustomerByIdAdapter
-    ){
+    ) {
         return new DeleteCustomerByIdUseCase(
-                findCustomerByIdAdapter,
+                findCustomerByIdUseCase,
                 deleteCustomerByIdAdapter
         );
     }
+
 }

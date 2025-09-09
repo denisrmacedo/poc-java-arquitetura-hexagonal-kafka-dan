@@ -31,4 +31,5 @@ public class InsertCustomerUseCase implements InsertCustomerInputPort {
         insertCustomerOutputPort.insert(customer);
         sendCpfForValidationOutputPort.send(customer.getCpf());
     }
+
 }
